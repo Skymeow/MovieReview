@@ -1,0 +1,24 @@
+PODS:
+  - Alamofire (4.8.1)
+  - ExpandableLabel (0.5.2)
+  - Kingfisher (4.10.1)
+
+DEPENDENCIES:
+  - Alamofire
+  - ExpandableLabel
+  - Kingfisher (~> 4.0)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - ExpandableLabel
+    - Kingfisher
+
+SPEC CHECKSUMS:
+  Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
+  ExpandableLabel: c2fab6d27860c572d67134b30522a5917746171d
+  Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
+
+PODFILE CHECKSUM: 8938e92693ecee5ffdbc56b4cacf3885af57da6c
+
+COCOAPODS: 1.5.3
