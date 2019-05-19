@@ -19,6 +19,10 @@
                 <rect key="frame" x="0.0" y="0.0" width="74" height="83"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Efv-l7-3Ym" customClass="ShadowView" customModule="MovieReview" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="74" height="66"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
                     <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ijg-Nl-FJI">
                         <rect key="frame" x="0.0" y="0.0" width="74" height="61"/>
                     </imageView>
@@ -42,9 +46,13 @@
                 <constraint firstItem="4w5-vA-RLK" firstAttribute="bottom" secondItem="MXO-2h-6gI" secondAttribute="top" constant="-5" id="NCh-fG-N3B"/>
                 <constraint firstAttribute="bottom" secondItem="MXO-2h-6gI" secondAttribute="bottom" id="UXO-5N-SFu"/>
                 <constraint firstAttribute="trailing" secondItem="4w5-vA-RLK" secondAttribute="trailing" id="UyZ-8n-5Mq"/>
+                <constraint firstAttribute="trailing" secondItem="Efv-l7-3Ym" secondAttribute="trailing" id="YSy-kS-jmW"/>
                 <constraint firstAttribute="trailing" secondItem="Ijg-Nl-FJI" secondAttribute="trailing" id="agy-YN-dDH"/>
+                <constraint firstItem="Efv-l7-3Ym" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="f45-a9-o7Y"/>
+                <constraint firstItem="Efv-l7-3Ym" firstAttribute="bottom" secondItem="MXO-2h-6gI" secondAttribute="top" id="gNW-qv-VcI"/>
                 <constraint firstItem="Ijg-Nl-FJI" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="mtw-Co-hls"/>
                 <constraint firstAttribute="trailing" secondItem="MXO-2h-6gI" secondAttribute="trailing" id="nwk-nc-7rV"/>
+                <constraint firstItem="Efv-l7-3Ym" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="rkH-0c-au9"/>
                 <constraint firstItem="4w5-vA-RLK" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="yXM-W3-89q"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
@@ -52,6 +60,7 @@
             <connections>
                 <outlet property="backgroundMaskView" destination="4w5-vA-RLK" id="Zct-3v-aeW"/>
                 <outlet property="imageView" destination="Ijg-Nl-FJI" id="G5e-eO-7RB"/>
+                <outlet property="shadowView" destination="Efv-l7-3Ym" id="hUv-sy-bqG"/>
                 <outlet property="textLabel" destination="MXO-2h-6gI" id="YOe-ae-Njz"/>
             </connections>
             <point key="canvasLocation" x="156.80000000000001" y="162.3688155922039"/>

@@ -15,6 +15,7 @@ class MovieCollectionViewCell: UICollectionViewCell, IdentifiableNibBasedCell {
         static let cellCornerRadius: CGFloat = 20
     }
     
+    @IBOutlet weak var shadowView: ShadowView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var textLabel: UILabel!
     @IBOutlet weak var backgroundMaskView: UIView!
@@ -22,6 +23,7 @@ class MovieCollectionViewCell: UICollectionViewCell, IdentifiableNibBasedCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        // add mask
         self.imageView.clipsToBounds = true
         self.backgroundMaskView.clipsToBounds = true
         self.imageView.layer.cornerRadius = Constants.cellCornerRadius

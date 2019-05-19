@@ -39,6 +39,7 @@
 		C615A27F228D16AF004D25B5 /* UIButton + extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C615A27E228D16AF004D25B5 /* UIButton + extension.swift */; };
 		C615A281228D2E42004D25B5 /* UIViewController + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C615A280228D2E42004D25B5 /* UIViewController + Extension.swift */; };
 		F99594F92291FC2200ADBBBC /* UIApplication + extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99594F82291FC2200ADBBBC /* UIApplication + extensions.swift */; };
+		F99594FB22920F4B00ADBBBC /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99594FA22920F4B00ADBBBC /* ShadowView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +79,7 @@
 		C615A27E228D16AF004D25B5 /* UIButton + extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton + extension.swift"; sourceTree = "<group>"; };
 		C615A280228D2E42004D25B5 /* UIViewController + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Extension.swift"; sourceTree = "<group>"; };
 		F99594F82291FC2200ADBBBC /* UIApplication + extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication + extensions.swift"; sourceTree = "<group>"; };
+		F99594FA22920F4B00ADBBBC /* ShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,6 +206,7 @@
 		C615A250228B623A004D25B5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F99594FA22920F4B00ADBBBC /* ShadowView.swift */,
 				C615A251228B6243004D25B5 /* Cells */,
 			);
 			path = Views;
@@ -371,6 +374,7 @@
 				C615A25E228B92CB004D25B5 /* MovieListTableViewCell.swift in Sources */,
 				C615A271228C9FCB004D25B5 /* MovieCastCollectionViewCell.swift in Sources */,
 				C615A278228CDF1C004D25B5 /* UIView + Extension.swift in Sources */,
+				F99594FB22920F4B00ADBBBC /* ShadowView.swift in Sources */,
 				C615A243228B269C004D25B5 /* RequestManager.swift in Sources */,
 				C615A239228A37B7004D25B5 /* UIColor + Extensions.swift in Sources */,
 				C615A220228A0F3D004D25B5 /* AppDelegate.swift in Sources */,
