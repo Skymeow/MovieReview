@@ -20,7 +20,7 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Efv-l7-3Ym" customClass="ShadowView" customModule="MovieReview" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="74" height="66"/>
+                        <rect key="frame" x="0.0" y="0.0" width="74" height="61"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                     <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ijg-Nl-FJI">
@@ -49,7 +49,7 @@
                 <constraint firstAttribute="trailing" secondItem="Efv-l7-3Ym" secondAttribute="trailing" id="YSy-kS-jmW"/>
                 <constraint firstAttribute="trailing" secondItem="Ijg-Nl-FJI" secondAttribute="trailing" id="agy-YN-dDH"/>
                 <constraint firstItem="Efv-l7-3Ym" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="f45-a9-o7Y"/>
-                <constraint firstItem="Efv-l7-3Ym" firstAttribute="bottom" secondItem="MXO-2h-6gI" secondAttribute="top" id="gNW-qv-VcI"/>
+                <constraint firstItem="MXO-2h-6gI" firstAttribute="top" secondItem="Efv-l7-3Ym" secondAttribute="bottom" constant="5" id="gNW-qv-VcI"/>
                 <constraint firstItem="Ijg-Nl-FJI" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="mtw-Co-hls"/>
                 <constraint firstAttribute="trailing" secondItem="MXO-2h-6gI" secondAttribute="trailing" id="nwk-nc-7rV"/>
                 <constraint firstItem="Efv-l7-3Ym" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="rkH-0c-au9"/>
