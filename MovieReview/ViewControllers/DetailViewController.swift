@@ -136,9 +136,15 @@ class DetailViewController: UIViewController {
     // - MARK: Actions
     
     @objc private func shareTapped() {
-        let firstActivityItem = "Hey check out \(self.movie.title)! It has a \(self.movie.imdbScore) on IMDB and stars \(self.movie.casts[0])"
+        let textToShare = "Hey check out \(self.movie.title)! It has a \(self.movie.imdbScore) on IMDB and stars \(self.movie.casts[0])"
+        var imageToshare = UIImage()
+        guard let imageURL = URL(string: self.movie.imageUrl) else { return }
+        KingfisherManager.shared.retrieveImage(with: imageURL, options: nil, progressBlock: nil, completionHandler: { image, err, cacheType, imageURL in
+            guard let image = image else { return }
+            imageToshare = image
+        })
         let activityViewController : UIActivityViewController = UIActivityViewController(
-            activityItems: [firstActivityItem], applicationActivities: nil)
+            activityItems: [textToShare, imageToshare], applicationActivities: nil)
         activityViewController.excludedActivityTypes = [
             UIActivity.ActivityType.message,
             UIActivity.ActivityType.mail,
