@@ -18,6 +18,7 @@ class MovieCollectionViewCell: UICollectionViewCell, IdentifiableNibBasedCell {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var textLabel: UILabel!
     @IBOutlet weak var backgroundMaskView: UIView!
+    private var movie: Movie?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -28,6 +29,7 @@ class MovieCollectionViewCell: UICollectionViewCell, IdentifiableNibBasedCell {
     }
     
     func configureCell(movie: Movie) {
+        self.movie = movie
         self.textLabel.text = movie.title
         self.imageView.kf.indicatorType = .activity
         self.imageView.contentMode = .scaleAspectFill
@@ -38,3 +40,19 @@ class MovieCollectionViewCell: UICollectionViewCell, IdentifiableNibBasedCell {
         }
     }
 }
+
+
+extension MovieCollectionViewCell: UIViewControllerPreviewingDelegate {
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+        guard let detailVC = UIStoryboard.initialViewController(for: .detail) as? DetailViewController else { return nil }
+        detailVC.movie = self.movie
+        return detailVC
+    }
+    
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
+        guard let topMostViewController = UIApplication.topMostViewController(), let detailVC = UIStoryboard.initialViewController(for: .detail) as? DetailViewController else { print("can't find top most view controller"); return }
+        topMostViewController.navigationController?.pushViewController(detailVC, animated: true)
+    }
+}
+
+

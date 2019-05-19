@@ -18,12 +18,10 @@ class DetailViewController: UIViewController {
         static let collectionViewVerticalInset: CGFloat = 2.0
     }
     
+    // - MARK: property
     var movie: Movie!
-    
-    @IBOutlet weak var synopsisContainerView: UIView!
-    @IBOutlet weak var synopsisScrollView: UIScrollView!
+    @IBOutlet weak var synopsisTextView: UITextView!
     @IBOutlet weak var synopsisContentView: UIView!
-    @IBOutlet weak var movieSynopsisLabel: UILabel!
     @IBOutlet weak var movieImageView: UIImageView!
     @IBOutlet weak var imdbScoreLabel: UILabel!
     @IBOutlet weak var rtScoreLabel: UILabel!
@@ -34,6 +32,8 @@ class DetailViewController: UIViewController {
     private var collectionViewLayout = UICollectionViewFlowLayout()
     @IBOutlet weak var likeButton: UIButton!
     @IBOutlet weak var openWebViewButton: UIButton!
+    
+    // - MARK: Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,7 +48,9 @@ class DetailViewController: UIViewController {
         super.viewWillLayoutSubviews()
         self.collectionView.collectionViewLayout.invalidateLayout()
     }
-  
+    
+    // - MARK: UI
+    
     private func configureButton() {
         self.likeButton.clipsToBounds = true
         self.likeButton.layer.cornerRadius = self.likeButton.bounds.width / 2
@@ -92,35 +94,6 @@ class DetailViewController: UIViewController {
         self.navigationController?.view.backgroundColor = UIColor.clear
     }
     
-    @objc private func shareTapped() {
-        let firstActivityItem = "Hey check out \(self.movie.title)! It has a \(self.movie.imdbScore) on IMDB and stars \(self.movie.casts[0])"
-        let activityViewController : UIActivityViewController = UIActivityViewController(
-            activityItems: [firstActivityItem], applicationActivities: nil)
-        activityViewController.excludedActivityTypes = [
-            UIActivity.ActivityType.message,
-            UIActivity.ActivityType.mail,
-            UIActivity.ActivityType.postToFacebook,
-            UIActivity.ActivityType.print,
-            UIActivity.ActivityType.addToReadingList,
-            UIActivity.ActivityType.copyToPasteboard,
-        ]
-        
-        self.present(activityViewController, animated: true, completion: nil)
-    }
-
-    @IBAction func likeButtonTapped(_ sender: UIButton) {
-        self.likeButton.isSelected = !self.likeButton.isSelected
-    }
-    
-    @IBAction func openWebTapped(_ sender: UIButton) {
-        guard let url = URL(string: self.movie.sourceUrl) else { return }
-        if #available(iOS 10.0, *) {
-            UIApplication.shared.open(url, options: [:], completionHandler: nil)
-        } else {
-            UIApplication.shared.openURL(url)
-        }
-    }
-    
     private func setupScrollView() {
         self.scrollView.contentSize = self.scrollContentView.bounds.size
         let scrollViewBounds = self.scrollContentView.bounds
@@ -134,21 +107,6 @@ class DetailViewController: UIViewController {
         scrollViewInsets.bottom -= contentViewBounds.size.height
         scrollViewInsets.bottom += 1
         self.scrollView.contentInset = scrollViewInsets
-        
-        self.synopsisScrollView.isScrollEnabled = false
-        self.synopsisScrollView.contentSize = self.synopsisContainerView.bounds.size
-        let synopsisScrollViewBounds = self.movieSynopsisLabel.bounds
-        let contentViewBounds2 = self.movieSynopsisLabel.bounds
-
-        var scrollViewInsets2 = UIEdgeInsets.zero
-        scrollViewInsets2.top = synopsisScrollViewBounds.size.height
-        scrollViewInsets2.top -= contentViewBounds2.size.height + 2
-        
-
-        scrollViewInsets2.bottom = synopsisScrollViewBounds.size.height
-        scrollViewInsets2.bottom -= contentViewBounds2.size.height + 2
-        scrollViewInsets2.bottom += 2
-        self.synopsisScrollView.contentInset = scrollViewInsets2
     }
     
     private func configureCollectionView() {
@@ -172,11 +130,43 @@ class DetailViewController: UIViewController {
         }
         self.imdbScoreLabel.text = "\(self.movie.imdbScore)"
         self.rtScoreLabel.text = "\(self.movie.rtScore)"
-        self.movieSynopsisLabel.text = self.movie.synopsis
-        self.movieSynopsisLabel.lineBreakMode = .byWordWrapping
+        self.synopsisTextView.text = self.movie.synopsis
+    }
+    
+    // - MARK: Actions
+    
+    @objc private func shareTapped() {
+        let firstActivityItem = "Hey check out \(self.movie.title)! It has a \(self.movie.imdbScore) on IMDB and stars \(self.movie.casts[0])"
+        let activityViewController : UIActivityViewController = UIActivityViewController(
+            activityItems: [firstActivityItem], applicationActivities: nil)
+        activityViewController.excludedActivityTypes = [
+            UIActivity.ActivityType.message,
+            UIActivity.ActivityType.mail,
+            UIActivity.ActivityType.postToFacebook,
+            UIActivity.ActivityType.print,
+            UIActivity.ActivityType.addToReadingList,
+            UIActivity.ActivityType.copyToPasteboard,
+        ]
+        
+        self.present(activityViewController, animated: true, completion: nil)
+    }
+    
+    @IBAction func likeButtonTapped(_ sender: UIButton) {
+        self.likeButton.isSelected = !self.likeButton.isSelected
+    }
+    
+    @IBAction func openWebTapped(_ sender: UIButton) {
+        guard let url = URL(string: self.movie.sourceUrl) else { return }
+        if #available(iOS 10.0, *) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        } else {
+            UIApplication.shared.openURL(url)
+        }
     }
    
 }
+
+// - MARK: CollectionView related delegate
 
 extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

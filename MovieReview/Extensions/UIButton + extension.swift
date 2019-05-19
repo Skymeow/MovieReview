@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+// UIColor -> set BackgroundImage
 extension UIButton {
     func setBackgroundColor(color: UIColor, forState: UIControl.State) {
         

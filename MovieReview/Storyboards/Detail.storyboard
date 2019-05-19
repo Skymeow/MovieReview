@@ -99,45 +99,21 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FOy-XN-u1r">
                                                         <rect key="frame" x="20" y="61" width="335" height="120"/>
                                                         <subviews>
-                                                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a2d-Z4-dC1">
+                                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ru5-BR-Pb1">
                                                                 <rect key="frame" x="0.0" y="0.0" width="335" height="120"/>
-                                                                <subviews>
-                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iT6-L5-Jjx">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="335" height="81.5"/>
-                                                                        <subviews>
-                                                                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="02q-yH-BTh">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="335" height="81.5"/>
-                                                                                <string key="text">My Brand new puppy is so cutesdafafdjsdfsfdsfdsfasdfdasfadfsdfasfdsafdsafadsfadfasdfasfadsfsdfdsfdsfsfsafsfsfsdfsdfsfasfsadfsdfsdfsdfdsf</string>
-                                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                                <nil key="textColor"/>
-                                                                                <nil key="highlightedColor"/>
-                                                                            </label>
-                                                                        </subviews>
-                                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                        <constraints>
-                                                                            <constraint firstAttribute="bottom" secondItem="02q-yH-BTh" secondAttribute="bottom" id="Fxc-w0-asu"/>
-                                                                            <constraint firstAttribute="trailing" secondItem="02q-yH-BTh" secondAttribute="trailing" id="Vbi-S7-WLP"/>
-                                                                            <constraint firstItem="02q-yH-BTh" firstAttribute="leading" secondItem="iT6-L5-Jjx" secondAttribute="leading" id="kVc-gA-elU"/>
-                                                                            <constraint firstItem="02q-yH-BTh" firstAttribute="top" secondItem="iT6-L5-Jjx" secondAttribute="top" id="uXv-1U-j7b"/>
-                                                                        </constraints>
-                                                                    </view>
-                                                                </subviews>
-                                                                <constraints>
-                                                                    <constraint firstItem="iT6-L5-Jjx" firstAttribute="top" secondItem="a2d-Z4-dC1" secondAttribute="top" id="7jt-rh-tfa"/>
-                                                                    <constraint firstItem="iT6-L5-Jjx" firstAttribute="centerX" secondItem="a2d-Z4-dC1" secondAttribute="centerX" id="Stg-yk-PJT"/>
-                                                                    <constraint firstItem="iT6-L5-Jjx" firstAttribute="leading" secondItem="a2d-Z4-dC1" secondAttribute="leading" id="Z15-vc-0zF"/>
-                                                                    <constraint firstAttribute="trailing" secondItem="iT6-L5-Jjx" secondAttribute="trailing" id="xEx-vY-NOw"/>
-                                                                    <constraint firstAttribute="bottom" secondItem="iT6-L5-Jjx" secondAttribute="bottom" id="zmF-1s-YiH"/>
-                                                                </constraints>
-                                                            </scrollView>
+                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                            </textView>
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstItem="a2d-Z4-dC1" firstAttribute="top" secondItem="FOy-XN-u1r" secondAttribute="top" id="ITK-TK-gia"/>
-                                                            <constraint firstItem="a2d-Z4-dC1" firstAttribute="leading" secondItem="FOy-XN-u1r" secondAttribute="leading" id="Iwy-s3-5wc"/>
-                                                            <constraint firstAttribute="trailing" secondItem="a2d-Z4-dC1" secondAttribute="trailing" id="a2Q-ae-GuJ"/>
+                                                            <constraint firstAttribute="trailing" secondItem="ru5-BR-Pb1" secondAttribute="trailing" id="54Q-zD-gr6"/>
+                                                            <constraint firstItem="ru5-BR-Pb1" firstAttribute="top" secondItem="FOy-XN-u1r" secondAttribute="top" id="T9b-i9-POQ"/>
+                                                            <constraint firstAttribute="bottom" secondItem="ru5-BR-Pb1" secondAttribute="bottom" id="d7a-Xp-lkg"/>
+                                                            <constraint firstItem="ru5-BR-Pb1" firstAttribute="leading" secondItem="FOy-XN-u1r" secondAttribute="leading" id="e2a-Xn-cb5"/>
                                                             <constraint firstAttribute="height" constant="120" id="oqE-BF-COn"/>
-                                                            <constraint firstAttribute="bottom" secondItem="a2d-Z4-dC1" secondAttribute="bottom" id="w7c-SJ-xBz"/>
                                                         </constraints>
                                                     </view>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CAST &amp; CREW" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="btN-Km-9cz">
@@ -158,16 +134,7 @@
                                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                         </collectionViewFlowLayout>
-                                                        <cells>
-                                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="njm-AD-E4A">
-                                                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                                                    <autoresizingMask key="autoresizingMask"/>
-                                                                </view>
-                                                            </collectionViewCell>
-                                                        </cells>
+                                                        <cells/>
                                                     </collectionView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Nmp-T3-gM3">
                                                         <rect key="frame" x="123.5" y="368" width="128" height="54"/>
@@ -257,16 +224,22 @@
                         <outlet property="likeButton" destination="jH6-0e-lUx" id="rxf-Qe-pk7"/>
                         <outlet property="moveiDetailContainerView" destination="Eso-7Y-vvS" id="tCu-Kj-2Xu"/>
                         <outlet property="movieImageView" destination="lOa-Ag-Ndc" id="rgi-gp-hs3"/>
-                        <outlet property="movieSynopsisLabel" destination="02q-yH-BTh" id="uHL-tP-NtO"/>
                         <outlet property="openWebViewButton" destination="yGh-mC-Iik" id="pfb-rx-91S"/>
                         <outlet property="rtScoreLabel" destination="Q7v-oj-XH1" id="RUW-F6-93p"/>
                         <outlet property="scrollContentView" destination="RwB-0o-Zit" id="6vl-ov-cda"/>
                         <outlet property="scrollView" destination="AcK-mI-WvO" id="9PB-gg-5ux"/>
-                        <outlet property="synopsisContainerView" destination="iT6-L5-Jjx" id="wNS-oU-MUv"/>
                         <outlet property="synopsisContentView" destination="FOy-XN-u1r" id="ayK-qJ-v0g"/>
-                        <outlet property="synopsisScrollView" destination="a2d-Z4-dC1" id="8Bg-sm-YPN"/>
+                        <outlet property="synopsisTextView" destination="ru5-BR-Pb1" id="plg-Ke-hzy"/>
                     </connections>
                 </viewController>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" id="LY7-hA-A3W">
+                    <rect key="frame" x="0.0" y="0.0" width="335" height="120"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5WN-WP-T50" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1071.2" y="21.139430284857571"/>

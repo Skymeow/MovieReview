@@ -14,6 +14,8 @@ class TrailersViewController: UIViewController {
         static let collectionViewHeight: CGFloat = 230
     }
     
+    // - MARK: property
+    
     @IBOutlet weak var tableView: UITableView!
     private let refreshControl = UIRefreshControl(frame: .zero)
     private var movieLists: [MovieList]? {
@@ -23,6 +25,8 @@ class TrailersViewController: UIViewController {
             }
         }
     }
+    
+    // - MARK: Lifecycle
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -39,6 +43,8 @@ class TrailersViewController: UIViewController {
         super.viewWillDisappear(animated)
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
+    
+    // - MARK: UI
     
     @objc func refreshControlChangedStatus(_ refreshControl: UIRefreshControl) {
         if refreshControl.isRefreshing {
@@ -80,6 +86,8 @@ class TrailersViewController: UIViewController {
     }
 }
 
+// - MARK: UITableViewDelegate, UITableViewDataSource
+
 extension TrailersViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
@@ -119,3 +127,14 @@ extension TrailersViewController: UITableViewDelegate, UITableViewDataSource {
         return Constants.tableViewSectionHeaderHeight
     }
 }
+
+// - MARK: For deep touch (MovieListTableViewCellDelegate)
+
+extension TrailersViewController: MovieListTableViewCellDelegate {
+    func passPreviewCell(for cell: MovieCollectionViewCell) {
+        if traitCollection.forceTouchCapability == .available {
+            registerForPreviewing(with: cell, sourceView: cell.contentView)
+        }
+    }
+}
+

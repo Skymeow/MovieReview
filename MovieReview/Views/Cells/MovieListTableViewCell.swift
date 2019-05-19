@@ -8,8 +8,9 @@
 
 import UIKit
 
+// - MARK: tabelview cell delegate
 protocol MovieListTableViewCellDelegate {
-    func callSegueFromCell(data: Movie)
+    func passPreviewCell(for cell: MovieCollectionViewCell)
 }
 
 class MovieListTableViewCell: UITableViewCell, IdentifiableNibBasedCell {
@@ -49,7 +50,7 @@ class MovieListTableViewCell: UITableViewCell, IdentifiableNibBasedCell {
     }
 }
 
-
+// - MARK: Tableview related delegate
 extension MovieListTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -67,6 +68,7 @@ extension MovieListTableViewCell: UICollectionViewDelegate, UICollectionViewData
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = self.collectionView.dequeueCell(MovieCollectionViewCell.self, for: indexPath)
         cell.configureCell(movie: self.moviesPerGenre[indexPath.row])
+        self.delegate?.passPreviewCell(for: cell)
         return cell
     }
     
