@@ -32,20 +32,25 @@ class MovieListTableViewCell: UITableViewCell, IdentifiableNibBasedCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         self.collectionView.collectionViewLayout.invalidateLayout()
+        self.configureCollectionView()
     }
     
-    func configureCollectionView(movies: [Movie]) {
-        self.moviesPerGenre = movies
+    func configureCollectionView() {
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
         self.collectionView.registerCell(MovieCollectionViewCell.self)
         self.contentView.backgroundColor = .white
         self.collectionView.backgroundColor = .white
+        
         self.collectionViewLayout.minimumInteritemSpacing = Constants.standardMargin
         self.collectionViewLayout.minimumLineSpacing = Constants.standardSpacing
         self.collectionViewLayout.sectionInset = UIEdgeInsets(top: 0, left: Constants.standardSpacing, bottom: 0, right: Constants.standardSpacing)
         self.collectionViewLayout.scrollDirection = .horizontal
         self.collectionView.collectionViewLayout = self.collectionViewLayout
+    }
+    
+    func reloadCollectionView(movies: [Movie]) {
+        self.moviesPerGenre = movies
         self.collectionView.reloadData()
     }
 }

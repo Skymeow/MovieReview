@@ -13,7 +13,7 @@ class RequestManager {
     
     static let shared = RequestManager()
     
-    func fetchRequest<T: Decodable>(route: Routes, modelType: T.Type, _ completion: @escaping(CustomResult<T, CustomError?>) -> Void) {
+    func fetchRequest<T: Decodable>(route: Routes, modelType: T.Type, _ completion: @escaping(CustomResult<T>) -> Void) {
         Alamofire.request(route.baseURLString, method: .get, parameters: route.parameters).responseData { (response) in
             switch response.result {
             case .success:
@@ -23,10 +23,10 @@ class RequestManager {
                     completion(.success(decodedModel))
                 } catch let err {
                     print(err)
-                    completion(.fail(CustomError.parsingError))
+                    completion(.failure(CustomError.parsingError))
                 }
             case .failure(let error):
-                completion(.fail(CustomError.serverError(ServerError.genericError(code: error.localizedDescription, message: "server error in fetch movie list"))))
+                completion(.failure(.serverError(.genericError(code: error.localizedDescription, message: "server error in fetch movie list"))))
             }
         }
     }

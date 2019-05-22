@@ -46,14 +46,20 @@ class MovieCollectionViewCell: UICollectionViewCell, IdentifiableNibBasedCell {
 
 extension MovieCollectionViewCell: UIViewControllerPreviewingDelegate {
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
-        guard let detailVC = UIStoryboard.initialViewController(for: .detail) as? DetailViewController else { return nil }
-        detailVC.movie = self.movie
+        guard let detailVC = UIStoryboard.initialViewController(for: .detail) as? DetailViewController, let superview = self.superview, let movie = self.movie else {
+            guard let topMostViewController = UIApplication.topMostViewController() else { print("can't find top most view controller"); return nil }
+            topMostViewController.presentAlert(title: "Not able to generate content for movie detail")
+            return nil
+        }
+        let rect = self.convert(self.frame, from: superview)
+        detailVC.movie = movie
+        previewingContext.sourceRect = rect
         return detailVC
     }
     
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
-        guard let topMostViewController = UIApplication.topMostViewController(), let detailVC = UIStoryboard.initialViewController(for: .detail) as? DetailViewController else { print("can't find top most view controller"); return }
-        topMostViewController.navigationController?.pushViewController(detailVC, animated: true)
+        guard let topMostViewController = UIApplication.topMostViewController() else { print("can't find top most view controller"); return }
+        topMostViewController.navigationController?.show(viewControllerToCommit, sender: self)
     }
 }
 

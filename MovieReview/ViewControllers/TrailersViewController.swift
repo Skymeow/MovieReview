@@ -12,12 +12,18 @@ class TrailersViewController: UIViewController {
     struct Constants {
         static let tableViewSectionHeaderHeight: CGFloat = 65
         static let collectionViewHeight: CGFloat = 230
+        static let headerLeadingConstraint: CGFloat = 20
+        static let headerTrailingConstraint: CGFloat = -10
+        static let headerBottomConstraint: CGFloat = -25
+        static let headerTopConstraint: CGFloat = 5
     }
     
     // - MARK: property
     
     @IBOutlet weak var tableView: UITableView!
     private let refreshControl = UIRefreshControl(frame: .zero)
+    
+    /// maybe remove it in the future if we only wants to reload certain section (server data large scale change)
     private var movieLists: [MovieList]? {
         didSet {
             DispatchQueue.main.async {
@@ -75,14 +81,13 @@ class TrailersViewController: UIViewController {
             switch result {
             case .success(let data):
                 strongSelf.movieLists = data
-            case .fail(let error):
+            case .failure(let error):
                 print(error)
                 strongSelf.presentRetryOrDismissAlert(title: "Network Error", message: "Failed to load movies", retry: { [unowned strongSelf] (action) in
                     strongSelf.fetchMovieLists()
                 })
             }
         }
-        
     }
 }
 
@@ -100,7 +105,7 @@ extension TrailersViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeuIdentifiableCell(MovieListTableViewCell.self, indexPath: indexPath)
         guard let movies = self.movieLists?[indexPath.section].movies else { print("empty movies data"); return UITableViewCell() }
-        cell.configureCollectionView(movies: movies)
+        cell.reloadCollectionView(movies: movies)
         cell.parentViewController = self
         return cell
     }
@@ -112,10 +117,10 @@ extension TrailersViewController: UITableViewDelegate, UITableViewDataSource {
         titleLable.translatesAutoresizingMaskIntoConstraints = false
         headerView.addSubview(titleLable)
         NSLayoutConstraint.activate([
-            titleLable.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: 20),
-            titleLable.bottomAnchor.constraint(equalTo: headerView.bottomAnchor, constant: -25),
-            titleLable.topAnchor.constraint(equalTo: headerView.topAnchor, constant: 5),
-            titleLable.trailingAnchor.constraint(equalTo: headerView.trailingAnchor, constant: -10),
+            titleLable.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: Constants.headerTopConstraint),
+            titleLable.bottomAnchor.constraint(equalTo: headerView.bottomAnchor, constant: Constants.headerBottomConstraint),
+            titleLable.topAnchor.constraint(equalTo: headerView.topAnchor, constant: Constants.headerTopConstraint),
+            titleLable.trailingAnchor.constraint(equalTo: headerView.trailingAnchor, constant: Constants.headerTrailingConstraint),
             ])
         titleLable.text = self.movieLists?[section].category
         titleLable.textColor = UIColor.darkPinkColor

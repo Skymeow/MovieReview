@@ -39,7 +39,7 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Copyright © 2018" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OBo-3t-YGM">
-                                <rect key="frame" x="115" y="641.5" width="145.5" height="20.5"/>
+                                <rect key="frame" x="115" y="631.5" width="145.5" height="20.5"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="14" id="7Tm-jq-V0h"/>
                                 </constraints>
@@ -57,7 +57,7 @@
                             <constraint firstItem="CNb-0V-GtM" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="kaF-4M-U6E"/>
                             <constraint firstItem="OBo-3t-YGM" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="mFR-61-wzJ"/>
                             <constraint firstAttribute="bottom" secondItem="RHs-Yh-5SY" secondAttribute="bottom" id="wI6-kj-11H"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="OBo-3t-YGM" secondAttribute="bottom" constant="5" id="x5y-cX-pFW"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="OBo-3t-YGM" secondAttribute="bottom" constant="15" id="x5y-cX-pFW"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

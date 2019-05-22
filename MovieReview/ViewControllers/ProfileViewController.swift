@@ -45,7 +45,7 @@ class ProfileViewController: UIViewController {
                 DispatchQueue.main.async {
                     strongSelf.setupUI(for: data)
                 }
-            case .fail(let error):
+            case .failure(let error):
                 print(error)
                 strongSelf.presentRetryOrDismissAlert(title: "Network Error", message: "Failed to load user", retry: { [unowned strongSelf] (action) in
                     strongSelf.fetchUser()

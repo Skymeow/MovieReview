@@ -29,4 +29,15 @@ extension UIViewController {
         }
         UINotificationFeedbackGenerator().notificationOccurred(.error)
     }
+    
+    public func presentAlert(title: String, message: String? = nil, dismissClosure: ((UIAlertAction) -> Void)? = nil) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let dismissAction = UIAlertAction(title: "Ok", style: .default, handler: dismissClosure)
+        alertController.addAction(dismissAction)
+        DispatchQueue.main.async {
+            self.present(alertController, animated: true)
+            UIAccessibility.post(notification: .layoutChanged, argument: alertController)
+        }
+        UINotificationFeedbackGenerator().notificationOccurred(.error)
+    }
 }

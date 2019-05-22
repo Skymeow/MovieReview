@@ -8,7 +8,9 @@
 
 import Foundation
 
-enum CustomResult<Success, Error> {
-    case success(Success)
-    case fail(CustomError)
-}
+//enum CustomResult<Success, Error> {
+//    case success(Success)
+//    case fail(CustomError)
+//}
+//better implementation:
+typealias CustomResult<Success> = Result<Success, CustomError>
