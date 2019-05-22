@@ -107,6 +107,7 @@ extension TrailersViewController: UITableViewDelegate, UITableViewDataSource {
         guard let movies = self.movieLists?[indexPath.section].movies else { print("empty movies data"); return UITableViewCell() }
         cell.reloadCollectionView(movies: movies)
         cell.parentViewController = self
+        cell.delegate = self
         return cell
     }
   
